@@ -1,0 +1,42 @@
+{
+	"manifest_version": 2 ,
+	"name": "Geeks For Geeks",
+	"description": "A simple tool to mark G4G articles as read and check the count.",
+	"version": "0.1",
+	"page_action":{
+		"default_icon": "icon.png",
+		"default_popup": "popup.html"
+	},
+	"content_scripts":[
+		{
+		"matches": ["http://www.geeksforgeeks.org/*/"],
+		"js": ["jquery.js" , "content_script.js" ]
+		}
+	],
+	"background":{
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+	"permissions":[
+		"http://www.geeksforgeeks.org/*/",
+		"storage",
+		"tabs",
+		"notifications"
+	],
+
+	"commands": {
+        "_execute_page_action": {
+        	"suggested_key": {
+                "default": "Ctrl+Shift+L",
+                "linux": "Ctrl+Shift+L",
+	        	"windows": "Ctrl+Shift+L",
+	        	"mac": "Command+Shift+L"
+      		}
+        }
+    },
+    "icons": { 
+        "16":"icons/icon-16.png", 
+    	"48":"icons/icon-48.png", 
+        "128":"icons/icon-128.png" 
+    }
+}
